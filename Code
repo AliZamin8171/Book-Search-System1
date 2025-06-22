@@ -1,0 +1,61 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.booksearchsystem;
+import java.util.Scanner;
+class Book{
+String title;
+String Author;
+String code;
+int price;
+//con...
+Book(String T,String A,String C,int P){
+this.Author=A;
+this.code=C;
+this.price=P;
+this.title=T;
+}
+//dis...
+void display(){
+    System.out.println("The book details:");
+    System.out.println("Title:"+this.title);
+    System.out.println("Author:"+this.Author);
+    System.out.println("Code:"+this.code);
+    System.out.println("Price:"+this.price);
+}
+}
+public class BookSearchSystem {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        Book[] B=new Book[5];
+        for (int i = 0; i <B.length; i++) {
+            System.out.println("Enter the book Title:");
+            String title=sc.nextLine();
+            System.out.println("Enter the book Author:");
+            String Author=sc.nextLine();
+            System.out.println("Enter the book Code in the foam of(B1,B2):");
+            String code=sc.nextLine();
+            System.out.println("Enter the book Price:");
+            int price=sc.nextInt();
+            B[i]=new Book(title,Author,code,price);
+            sc.nextLine();
+        }
+        //searching
+        System.out.println("Enter the  code witch we find the book:");
+        String code=sc.nextLine();
+        boolean found=false;
+        for (int i = 0; i <B.length; i++) {
+            if (B[i].code.equalsIgnoreCase(code)) {
+                System.out.println("Book is found:");
+                B[i].display();
+                found=true;
+            }
+          
+        }
+          if (!found) {
+                System.out.println("Book in Available in our Library System");
+            }
+    }
+}
